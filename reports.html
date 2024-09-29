@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Metadata for character set and viewport settings -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Title of the webpage -->
+    <title>Expense Reports</title>
+    <!-- Link to external CSS stylesheet -->
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <!-- Favicon for the webpage -->
+    <link
+      rel="shortcut icon"
+      href="assets/images/favicon.png"
+      type="image/x-icon"
+    />
+    <!-- Link to the Chart.js library for creating charts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <!-- Header section containing the navigation bar -->
+    <header>
+      <div id="navbar-container">
+        <!-- Logo section within the navbar -->
+        <div id="navbar-logo">
+          <a href="index.html" id="navbar-logo-icon">
+            <!-- Logo image -->
+
+            <img
+              src="assets/images/logo.png"
+              alt="Expense Tracker Logo"
+              id="logo"
+            />
+            <!-- Website title -->
+            <h1>Expense Tracker</h1>
+          </a>
+        </div>
+        <!-- Navigation menu -->
+        <nav>
+          <ul id="navbar-menu">
+            <!-- Navigation links -->
+            <li><a href="index.html">Home</a></li>
+            <li><a href="reports.html" class="active">Reports</a></li>
+            <li><a href="budgets.html">Budgets</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Main content section -->
+    <main>
+      <!-- Section summarizing the expenses -->
+      <section id="expense-summary">
+        <h2>Expense Summary</h2>
+        <!-- Display of total expenses and category-wise breakdown -->
+        <p>Total Expenses: (SEK) <span id="total-amount-report">0</span></p>
+        <p>Food: (SEK) <span id="food-amount-report">0</span></p>
+        <p>Transport: (SEK) <span id="transport-amount-report">0</span></p>
+        <p>
+          Entertainment: (SEK) <span id="entertainment-amount-report">0</span>
+        </p>
+        <p>Utilities: (SEK) <span id="utilities-amount-report">0</span></p>
+        <p>Other: (SEK) <span id="other-amount-report">0</span></p>
+      </section>
+
+      <!-- Section for displaying the expenses chart -->
+      <section id="expense-chart">
+        <h2>Expenses Chart</h2>
+        <!-- Canvas element where the chart will be rendered using Chart.js -->
+        <canvas id="expensesChart"></canvas>
+      </section>
+    </main>
+
+    <!-- Footer section -->
+    <footer>
+      <div class="footer-container">
+        <!-- Footer logo section -->
+        <div id="navbar-logo">
+          <a href="index.html" id="navbar-logo-icon">
+            <!-- Logo image -->
+
+            <img
+              src="assets/images/logo.png"
+              alt="Expense Tracker Logo"
+              id="logo"
+            />
+            <!-- Website title -->
+            <h1 style="color: white">Expense Tracker</h1>
+          </a>
+        </div>
+        <!-- Footer content section -->
+        <div class="footer-content">
+          <!-- Footer navigation links -->
+          <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="reports.html">Reports</a>
+            <a href="budgets.html">Budgets</a>
+          </div>
+          <!-- Footer contact information -->
+          <div class="footer-contacts">
+            <p>
+              Email:
+              <a href="mailto:guluzianjoseph123@gmail.com"
+                >guluzianjoseph123@gmail.com</a
+              >
+            </p>
+            <p>Phone: +46 (0) 123 456 789</p>
+          </div>
+          <!-- Copyright notice -->
+          <p>&copy; 2024 Expense Tracker. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Link to external JavaScript file for reports functionality -->
+    <script src="assets/js/reports.js"></script>
+    <script src="assets/js/navbar.js"></script>
+    <script src="assets/js/scripts.js"></script>
+  </body>
+</html>
