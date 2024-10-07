@@ -147,63 +147,85 @@ Ensured that the remaining budget updates correctly after adding new expenses.
 Generated reports based on expenses over various periods (e.g., weekly, monthly).
 Verified that reports display accurate data in the form of charts and text.
 
-**Responsiveness:**
+## Testing
 
-Tested the application across various devices (desktop, tablet, smartphone) to ensure proper responsiveness using browser developer tools and real devices.
-Confirmed that all elements resize and reposition correctly according to the device's screen size.
+Testing the application was carried out in multiple stages, focusing on functionality, site responsiveness, code validation, and bug handling. Below is a detailed breakdown of the testing performed.
 
-**Browser Compatibility**
+### 1. Manual Testing
 
-The application was tested on the following web browsers to ensure compatibility and consistent user experience:
+**Manual testing** was performed on each section of the site to ensure every interactive element (buttons, forms, navigation links) works as intended. Tests were conducted for both the "happy path" (correct inputs) and "bad path" (incorrect inputs) scenarios.
 
-- Google Chrome
-- Mozilla Firefox
-- Microsoft Edge
-- Safari
-  Each page and feature was tested to ensure no differences in display or functionality across different browsers.
+| Feature Tested   | Expected Behavior                          | Test Performed                                             | Result                                               | Fixes Needed (if any) |
+| ---------------- | ------------------------------------------ | ---------------------------------------------------------- | ---------------------------------------------------- | --------------------- |
+| Add Expense Form | Add a new expense with correct data inputs | Entered name, amount, and category; submitted form         | Successfully added the expense and updated the list  | None                  |
+| Add Expense Form | Prevent empty or negative inputs           | Entered negative/empty values, form should reject          | Form displayed validation message                    | None                  |
+| Budget Setting   | Set budget for a category                  | Entered a budget for 'Food'; submitted                     | Budget added successfully, remaining balance updated | None                  |
+| Budget Exceeded  | Exceed the set budget for a category       | Added expenses more than set budget                        | Notification displayed for exceeding the budget      | None                  |
+| Navigation Links | Redirect to the respective sections        | Clicked on 'Reports' and 'Budgets' in the navbar           | Redirected to the correct section                    | None                  |
+| Chart Generation | Generate reports based on expenses         | Viewed charts after adding expenses for several categories | Reports displayed accurate data visually             | None                  |
 
-**Mobile Responsiveness**
+**Example Screenshot:**
+<img width="751" alt="image (4)" src="https://github.com/user-attachments/assets/e416785f-d0e1-449e-9086-8e061b7b578b">
+<img width="755" alt="image (3)" src="https://github.com/user-attachments/assets/69348cca-f046-4848-857a-ea3706b8c1c1">
+<img width="718" alt="image (5)" src="https://github.com/user-attachments/assets/9121cf3c-c4c1-4a7c-b85f-a3a1a84446ec">
+<img width="716" alt="image (6)" src="https://github.com/user-attachments/assets/69353b2d-7f8e-4424-bbb0-25ae6dcfcf6d">
+<img width="728" alt="image (7)" src="https://github.com/user-attachments/assets/7921bdac-13e5-499c-8d86-6c3ce6645180">
 
-Mobile responsiveness was tested on the following devices:
 
-- iPhone (iOS)
-- Android (Pixel, Samsung Galaxy)
-- Tablets (iPad, Galaxy Tab)
-  The layout and features adapt well to different screen sizes, with no overlapping or misalignment of elements.
+### 2. Testing Site Responsiveness
 
-## User Testing
+**Responsiveness** was tested across various devices to ensure that the design adapts to different screen sizes without any layout issues. The tool [Responsive Design Checker](https://responsivedesignchecker.com/) was used for the following tests:
 
-In addition to manual testing by the developer, user testing was carried out by inviting a few users to interact with the app. Based on their feedback, the following improvements were made:
+| Device Type            | Screen Size Tested | Expected Outcome                                       | Result                                                      |
+| ---------------------- | ------------------ | ------------------------------------------------------ | ----------------------------------------------------------- |
+| Mobile (iPhone 12 Pro) | 390x844            | All elements resize appropriately, no overflow issues  | Layout worked perfectly, navigation menu adapted for mobile |
+| Tablet (iPad Pro)      | 820x1180           | Proper display of elements, charts resized dynamically | Charts and layout were responsive without overlap           |
+| Desktop (1920x1080)    | Full-screen view   | Large charts and expense list fully visible            | Works as expected                                           |
 
-- Improved form input validation to prevent incorrect entries (e.g., negative amounts for expenses).
-- Adjusted the visual layout for better readability on smaller screens.
-- Added confirmation messages after successful actions like adding expenses or generating reports.
-- Issues and Fixes
-- During testing, several issues were identified and resolved:
+**Example Screenshot:**
+<img width="448" alt="image" src="https://github.com/user-attachments/assets/b70754c2-59c2-4268-91b0-9f39ae063b34">
+<img width="410" alt="image (1)" src="https://github.com/user-attachments/assets/5b107ee1-520a-4586-9ce8-8b5c60b8bb52">
+<img width="704" alt="image (2)" src="https://github.com/user-attachments/assets/655c682d-0556-458b-9b94-915f29c3bcc6">
 
-Bug: Expense list did not update automatically after adding a new expense.
-Fix: Implemented a real-time update feature to refresh the list once a new expense is added.
 
-Bug: Chart data did not reflect changes immediately after adding new expenses.
-Fix: Updated the logic in the chart generation function to redraw the charts whenever new data is added.
+### 3. Code Validation
 
-Bug: Budget progress bar occasionally displayed inaccurate percentages.
-Fix: Corrected the calculations to ensure the progress bar correctly reflects the current budget usage.
+All code (HTML, CSS, JavaScript) was validated using online validation tools to ensure compliance with web standards.
 
-## Automated Testing
+- **HTML Validation:** [W3C Validator](https://validator.w3.org/) - No major issues were found, but a few warnings regarding accessibility were addressed.
+- **CSS Validation:** [W3C Jigsaw CSS Validator](https://jigsaw.w3.org/css-validator/) - Minor styling issues were flagged, which were fixed by correcting certain `media queries`.
+- **JavaScript Validation:** [JSHint](https://jshint.com/) - Some syntax warnings were resolved, including missing semicolons.
 
-**Unit Tests:** Basic unit tests were written to check the core functionality of adding expenses and generating reports. These were run using a JavaScript testing framework (e.g., Jasmine or Mocha).
+### 4. Testing of User Stories/Features
 
-**Integration Testing:** Integration tests were performed to ensure that different components of the app (e.g., adding expenses and updating budgets) work together seamlessly.
+**Feature**: Add Expense
 
-## Known Issues
+- **Expected**: Users can add a new expense by providing a name, amount, and category. The new expense should appear in the list and reflect in the budget report.
+- **Test**: Added an expense with valid data, clicked on the 'Add Expense' button.
+- **Result**: Expense was successfully added, and the budget updated accordingly.
 
-- There is a slight delay when generating large reports with many expenses. This will be addressed in future updates by optimizing the report generation logic.
-- On very small screens, the report charts sometimes overflow slightly. This is being worked on in the next release.
+**Feature**: Generate Reports
 
-## Future Testing
+- **Expected**: Users can generate visual reports based on their expense data.
+- **Test**: Navigated to the 'Reports' section after adding multiple expenses.
+- **Result**: Report charts generated accurately, displaying all relevant data.
 
-Further testing will be conducted as more features are added to ensure everything works correctly. Automated end-to-end tests may be integrated using tools like Selenium for more thorough cross-browser testing.
+### 5. Bug Documentation and Resolution
+
+During testing, the following bugs were encountered:
+
+| Bug Description                                                                 | Resolution Steps                                                                                              |
+| ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
+| **Bug**: Expense list did not refresh automatically after adding a new expense. | **Fix**: Implemented real-time refresh functionality using JavaScript to reload the list after each addition. |
+| **Bug**: Budget progress bar showed incorrect percentages.                      | **Fix**: Updated the calculation logic for the progress bar to ensure accuracy.                               |
+| **Bug**: Chart data not updated after expenses were added.                      | **Fix**: The chart generation function was adjusted to trigger on each update to the expenses.                |
+
+### 6. Documentation of Open Bugs
+
+Although most issues have been resolved, there are some minor open bugs:
+
+- **Bug**: Report generation has a slight delay when there are too many expenses. This issue will be optimized in a future release.
+- **Bug**: On very small screens (e.g., older mobile devices), some charts occasionally overflow. This will be fixed with a more flexible layout in the next update.
 
 ## Deployment
 
@@ -214,3 +236,5 @@ The project was deployed using Github Pages. It can be seen [here](https://atpsw
 For any questions, suggestions, or support, please contact:
 
 Email: guluzianjoseph123@gmail.com
+
+
