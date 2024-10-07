@@ -229,7 +229,7 @@ Although most issues have been resolved, there are some minor open bugs:
 
 ## Deployment
 
-The project was deployed using Github Pages. It can be seen [here](https://atpswift.github.io/Expense-Tracker/).
+The project was deployed using Github Pages. It can be seen [here](https://atpswift.github.io/portfolio-2-final/).
 
 ## Contact
 
